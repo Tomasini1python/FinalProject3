@@ -4,7 +4,9 @@ from func import *
 while True:
     text = voice_recognition()
     print(text)
-    diferent_func(text)
+    text_generated = diferent_func(text)
+    print(text_generated)
+    speak = speaking(text_generated)
 
 
 

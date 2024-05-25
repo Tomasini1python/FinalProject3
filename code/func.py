@@ -6,7 +6,8 @@ def diferent_func(text:str):
 
     else:
         cliente = client.Client()
-        responsez
+        response = cliente.chat.completions.create(messages=[{"role":"user", "content":text}], model="gpt-3.5-turbo")
+        return response.choices[0].message.content.strip()
 
 
 
