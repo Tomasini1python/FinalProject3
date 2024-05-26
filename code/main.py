@@ -1,11 +1,18 @@
 from voiceRec import *
 from func import *
+import playsound
 
-print('speak:')
+
 while True:
-    text = voice_recognition()
-    print('Tu: '+text)
-    text_generated = diferent_func(text)
-    print('Bot: '+text_generated)
-    speak = speaking(text_generated)
+    try:
+        text = voice_recognition().lower()
+        if "alexa" in text:
 
+            playsound.playsound('')
+            text = voice_recognition().lower()
+            print('Tu: ' + text)
+            text_generated = diferent_func(text)
+            print('Bot: ' + text_generated)
+            speak = speaking(text_generated)
+    except:
+        pass

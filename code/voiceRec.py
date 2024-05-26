@@ -7,7 +7,10 @@ def voice_recognition():
     with sr.Microphone() as mic:
         voz.adjust_for_ambient_noise(mic)
         audio = voz.listen(mic)
-        text = voz.recognize_google(audio, language='en-GB')
+        try:
+            text = voz.recognize_google(audio, language='en-GB')
+        except:
+            pass
         return text
 
 
