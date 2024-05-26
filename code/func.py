@@ -1,6 +1,9 @@
 from g4f import client
 import datetime
 from pywhatkit import *
+import requests, json
+
+# https://api.openweathermap.org/data/2.5/weather?q={city name}&appid=523d29d6950b43bae1b373b563154b71
 
 def diferent_func(text:str):
     if "play" in text:
@@ -11,8 +14,12 @@ def diferent_func(text:str):
         min = datetime.datetime.now().minute
         time =f'{hours} : {min}'
         return time
-    elif "let's play" in text:
-        pass
+    elif "what is the weather like in" in text:
+        city = text[len('what is the weather like in')+1:]
+        weather = requests.get(f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid=523d29d6950b43bae1b373b563154b71')
+        weather_json = weather.json()
+        info = f'Sky: {weather_json["weather"]["main"]};\n Temperature: {float(weather_json["main"]["temp"])-273.15}; Pressure: {weather_json["main"]["pressure"]}Pa; Humidity: {weather_json["main"]["humidity"]}'
+        return info
     else:
         cliente = client.Client()
         response = cliente.chat.completions.create(messages=[{"role":"user", "content":text}], model="gpt-3.5-turbo")

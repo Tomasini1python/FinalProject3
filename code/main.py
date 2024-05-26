@@ -7,8 +7,7 @@ while True:
     try:
         text = voice_recognition().lower()
         if "alexa" in text:
-
-            playsound.playsound('')
+            playsound.playsound('../sounds/ball-origin-beep.mp3')
             text = voice_recognition().lower()
             print('Tu: ' + text)
             text_generated = diferent_func(text)
