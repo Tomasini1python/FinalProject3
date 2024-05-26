@@ -1,15 +1,11 @@
 from voiceRec import *
 from func import *
 
+print('speak:')
 while True:
     text = voice_recognition()
-    print(text)
+    print('Tu: '+text)
     text_generated = diferent_func(text)
-    print(text_generated)
+    print('Bot: '+text_generated)
     speak = speaking(text_generated)
-
-
-
-
-
 
