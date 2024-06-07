@@ -53,7 +53,7 @@ def Saving():
 
     print(txt)
 
-    with open(f'../../LOG/{name}.txt', 'w') as file:
+    with open(f'../LOG/{name}.txt', 'w') as file:
         file.write(txt)
 
     ls_conversas.insert(0, f'{name}.txt')
@@ -63,7 +63,7 @@ def Chat(event):
     tx_teste.configure(state='normal')
     tx_teste.delete('1.0', END)
     cs = ls_conversas.curselection()
-    with open(f'../../LOG/{ls_conversas.get(cs)}', 'r') as file:
+    with open(f'../LOG/{ls_conversas.get(cs)}', 'r') as file:
         tx_teste.insert(END, file.read())
 
     tx_teste.configure(state='disable')
@@ -89,9 +89,9 @@ root.title('NEXA AI')
 root.wm_resizable(width=False, height=False)
 root.configure(bg=back)
 
-add = PhotoImage(file='../../images/icons8-paper-airplane-25.png')
-plus = PhotoImage(file='../../images/icons8-save-25.png')
-speak_img = PhotoImage(file='../../images/icons8-speak-25.png')
+add = PhotoImage(file='../images/icons8-paper-airplane-25.png')
+plus = PhotoImage(file='../images/icons8-save-25.png')
+speak_img = PhotoImage(file='../images/icons8-speak-25.png')
 
 # Title
 
@@ -115,7 +115,7 @@ Cv2 = Canvas(root, bg=cinza, bd=0, relief='ridge')
 Cv2.place(x=14, y=112, width=142, height=480)
 
 ls_conversas = Listbox(Cv2, bg=cinza, fg=white)
-for e in os.listdir('../../LOG'):
+for e in os.listdir('../LOG'):
     ls_conversas.insert(0, e)
 ls_conversas.bind('<Double-1>', Chat)
 ls_conversas.place(x=0, y=30, width=142, height=450)
