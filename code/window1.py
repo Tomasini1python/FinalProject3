@@ -79,7 +79,7 @@ cinza = '#2E2E2E'
 # Essencial
 
 speak = False
-
+hearing = False
 
 # window
 
@@ -92,6 +92,7 @@ root.configure(bg=back)
 add = PhotoImage(file='../images/icons8-paper-airplane-25.png')
 plus = PhotoImage(file='../images/icons8-save-25.png')
 speak_img = PhotoImage(file='../images/icons8-speak-25.png')
+mic_img = PhotoImage(file='../images/icons8-mic-25.png')
 
 # Title
 
@@ -139,7 +140,6 @@ Bt_add.place(width=27, height=27, x=566, y=528)
 
 Bt_speak = Checkbutton(root, image=speak_img, command=Speak)
 Bt_speak.place(width=50, height=27, x=543, y=566)
-
 
 
 root.mainloop()
